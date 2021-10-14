@@ -54,7 +54,7 @@ for (let i = 0; i < immagini.length; i++) {
                             </div>
                         </div>`;
 
-    // Tag img inserito nell'html
+    // Se la classe è active inserisco l'immagine in anteprima altrimenti nelle thumb
     if(active === "active") {
         contenitoreImmagineFull.innerHTML +=  tagImgFull;
     } else {
@@ -81,7 +81,6 @@ arrowTop.addEventListener("click", function () {
     if (indiceCorrente < 0){
         indiceCorrente = immagini.length - 1;
     }
-
 });
 
 // Cliccando sulla freccia in alto deve essere selezionata la thumb corrente e deve essere inserita come immagini di anteprima
