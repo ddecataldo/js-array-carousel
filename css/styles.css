@@ -26,6 +26,28 @@
     object-fit: cover;
 }
 
+/*** Posizionamento Testi ***/
+.text-image-full{
+    position: relative;
+    text-align: right;
+}
+.title-image-full > h1,
+.description-image-full > p {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.title-image-full >h1.active{
+    bottom: 80px;
+    opacity: 1;
+}
+.description-image-full >p.active{
+    bottom: 15px;
+    opacity: 1;
+}
+
 /*** Posizionamento Freccie ***/
 .arrow{
     position: absolute;
