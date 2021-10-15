@@ -30,7 +30,7 @@ const contenitoreImmagineFull = document.querySelector(".image-full");
 const contenitoreImmagineThumb = document.querySelector(".row--image-thumb");
 
 // Assegno un valore all'indice corrente
-let indiceCorrente = 0;
+let indiceCorrente = 3;
 
 // Dobbiamo stampare il tag img
 for (let i = 0; i < immagini.length; i++) {
@@ -41,7 +41,7 @@ for (let i = 0; i < immagini.length; i++) {
     let active = "";
 
     // Se indice immagine = 0 allora inserisci la classe active
-    if (i === indiceCorrente) {
+    if (indiceCorrente === i) { // Se i = 4
         active = "active";
     }
 
@@ -55,11 +55,10 @@ for (let i = 0; i < immagini.length; i++) {
                         </div>`;
 
     // Se la classe è active inserisco l'immagine in anteprima altrimenti nelle thumb
-    if(active === "active") {
-        contenitoreImmagineFull.innerHTML +=  tagImgFull;
-    } else {
-        contenitoreImmagineThumb.innerHTML += tagImgThumb;
-    }
+
+    contenitoreImmagineFull.innerHTML +=  tagImgFull;
+    contenitoreImmagineThumb.innerHTML += tagImgThumb;
+
 }
 
 // Selezione le classi delle freccie dove devo intervenireù
@@ -80,10 +79,42 @@ arrowTop.addEventListener("click", function () {
     // Se minore di 0 l'indice deve essere assegnato all'ultimo valore della lunghezza dell'array
     if (indiceCorrente < 0){
         indiceCorrente = immagini.length - 1;
-    }
+    } // 4
+
+    // Devo applicare la classe active al nuovo elemento all'indice corrente
+
+    // Selezione tutte le immagini presenti nel percorso css .image-full > img in modo da ricavare un "array".
+    const appactive = document.querySelectorAll(".image-full > img");
+
+    // Ricavato l'array inserisco il mio indice e gli aggiungo la classe active
+    const nuovoIndice = appactive[indiceCorrente].classList.add("active");
+    
+
+
 });
 
 // Cliccando sulla freccia in alto deve essere selezionata la thumb corrente e deve essere inserita come immagini di anteprima
 arrowBottom.addEventListener("click", function () {
+
+    // Seleziona l'elemento con la classe active
+    const immagineAttiva = contenitoreImmagineFull.querySelector(".active");
+    // Rimuovi dall'elemento la classe active
+    immagineAttiva.classList.remove("active");
+
+    // Decremento l'indice
+    indiceCorrente++; // -1
+
+    // Se l'indice (parte da 0) è maggiore della lunghezza dell'array (parte da 1 per questo si sottrae 1) allora indiceCorrente = 0 
+    if (indiceCorrente > immagini.length - 1){
+        indiceCorrente = 0;
+    } // 4
+
+    // Devo applicare la classe active al nuovo elemento all'indice corrente
+
+    // Selezione tutte le immagini presenti nel percorso css .image-full > img in modo da ricavare un "array".
+    const appactive = document.querySelectorAll(".image-full > img");
+
+    // Ricavato l'array inserisco il mio indice e gli aggiungo la classe active
+    const nuovoIndice = appactive[indiceCorrente].classList.add("active");
 
 });
