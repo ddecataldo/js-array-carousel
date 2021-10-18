@@ -114,13 +114,11 @@ arrowTop.addEventListener("click", function () {
 
     // Seleziona l'elemento con la classe active
     const titoloAttivo = contenitoreTitolo.querySelector(".active");
-    console.log(titoloAttivo, "titoloAttivo")
     // Rimuovi dall'elemento la classe active
     titoloAttivo.classList.remove("active");
 
     // Seleziona l'elemento con la classe active
     const descrizioneAttiva = contenitoreDescrizione.querySelector(".active");
-    console.log(descrizioneAttiva, "descrizioneAttiva")
     // Rimuovi dall'elemento la classe active
     descrizioneAttiva.classList.remove("active");
 
@@ -137,8 +135,9 @@ arrowTop.addEventListener("click", function () {
         indiceCorrenteTitle = titolo.length - 1;
     }
     if (indiceCorrenteDescrizione < 0){
-        indiceCorrenteDescrizione = descrizione.lenght -1;
+        indiceCorrenteDescrizione = descrizione.length -1;
     }
+    console.log("L'indicide corrente di desrizione è " + indiceCorrenteDescrizione)
 
     // Devo applicare la classe active al nuovo elemento all'indice corrente
 
@@ -146,6 +145,7 @@ arrowTop.addEventListener("click", function () {
     const appactive = document.querySelectorAll(".image-full > img");
     const titactive = document.querySelectorAll(".title-image-full > h1");
     const descactive = document.querySelectorAll(".description-image-full > p");
+    console.log(descactive);
 
     // Ricavato l'array inserisco il mio indice e gli aggiungo la classe active
     const nuovoIndice = appactive[indiceCorrente].classList.add("active");
